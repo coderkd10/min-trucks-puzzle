@@ -11,10 +11,10 @@ Find the minimum number of trucks that are required (assmuing all m_i and T_i s 
 ## Solution
 
 In the general case any number of vehicles (greater than minimum required) can leave each station (i.e at S1 on day1 a1 vehicles leave and on day2 a2 vehicles leave. Both a1 & a2 need to be >= m1, but it is not necessary that a1 = a2).  
-But to make the solution a bit simpler I have imposed an additional constraint that the same number of vehicles should leave any station on all days, i.e, a1 must = a2 (or in other words the number of vehicles leaving any given station cannot should remain constant on each day).  
+But to make the solution a bit simpler I have imposed an additional constraint that the same number of vehicles should leave any station on all days, i.e, a1 must = a2 (or in other words the number of vehicles leaving any given station should remain constant on each day).  
 This strategy may not give the optimal solution (or it may but I couldn't prove / disprove it yet), but it does gives us a decent lower bound and it makes it much easier to reason about the problem.
 
-Lets consider carefully a part of the problem -  
+Let's consider carefully a part of the problem -  
  - Consider two adjacent stations Sb & Sa. Trucks leave from Sb and arrive to Sa in N days. The minimum number of trucks that must leave Sb & Sa are n and m respectively (ma = n, mb = m).  
 
 I'll make some claims about this situation (and also prove them) which make the actual solution much simpler
@@ -35,8 +35,8 @@ Day -> Number of trucks
 ...  
 N-1 -> A - (N-1)m
 
-Since untill day N-1 no cars from Sb has reached Sa yet.  
-Also since on day N-1 atleast m cars must leave Sa we have -
+Since until day N-1 no trucks from Sb has reached Sa yet.  
+Also since on day N-1 atleast m trucks must leave Sa we have -
 
 A - (N-1)m >= m  
 => A >= N*m
@@ -61,7 +61,7 @@ N+2 : >= A + n + 2(n - a)
 N+3 : >= A + n + 3(n - a)  
 ...
 
-we see that the number of cars at Sa is monotonically increasing with each day (since a > n). Thus any finite number of trucks will not suffice in this senario.  
+we see that the number of trucks at Sa is monotonically increasing with each day (since a > n). Thus any finite number of trucks will not suffice in this senario.  
 This can be avoided only when a is atleast n. i.e a >= n.   
 Hence the minimum number of trucks leaving both Sa and Sb = n = max (n, m)
 
@@ -100,13 +100,13 @@ at S3 -> T2 * M = A3
 ...  
 at SN -> T_(N-1) * M = AN    
 
-and it is self evident that we use the minimum possible number A_i at each station at the start, and on each day send M trucks from each station we arrive at a correct solution, which thus is the optimal solution, given the constraints.  
+and it is self evident that if we use the minimum possible number A_i at each station at the start, and on each day send M trucks from each station we arrive at a correct solution, which thus is the optimal solution (given the constraints).  
 
 Thus the minimum number of trucks required is  
 
 M * (T1 + T2 + T3 + ... + TN)
 
-we have hence arrived at a close form solution for the problem (after imposing the simplying condition mentioned before). This is actually trivial to implement in any programming language.
+we have hence arrived at a closed-form solution for the problem (after imposing the simplying condition mentioned before). This is actually trivial to implement in any programming language.
 
 ## Code
 
