@@ -107,3 +107,14 @@ Thus the minimum number of trucks required is
 M * (T1 + T2 + T3 + ... + TN)
 
 we have hence arrived at a close form solution for the problem (after imposing the simplying condition mentioned before). This is actually trivial to implement in any programming language.
+
+## Code
+
+Code for the solution described above can be found in `MinTrucks.java` file.
+
+### Usage
+
+```
+$ javac MinTrucks.java
+$ java MinTrucks
+```
