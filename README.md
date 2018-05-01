@@ -12,7 +12,7 @@ Find the minimum number of trucks that are required (assmuing all m_i and T_i s 
 
 In the general case any number of vehicles (greater than minimum required) can leave each station (i.e at S1 on day1 a1 vehicles leave and on day2 a2 vehicles leave. Both a1 & a2 need to be >= m1, but it is not necessary that a1 = a2).  
 But to make the solution a bit simpler I have imposed an additional constraint that the same number of vehicles should leave any station on all days, i.e, a1 must = a2 (or in other words the number of vehicles leaving any given station should remain constant on each day).  
-This strategy may not give the optimal solution (or it may but I couldn't prove / disprove it yet), but it does gives us a decent lower bound and it makes it much easier to reason about the problem.
+This strategy may not give the optimal solution (or it may but I couldn't prove / disprove it yet), but it does gives us a decent upper bound and it makes it much easier to reason about the problem.
 
 Let's consider carefully a part of the problem -  
  - Consider two adjacent stations Sb & Sa. Trucks leave from Sb and arrive to Sa in N days. The minimum number of trucks that must leave Sb & Sa are n and m respectively (ma = n, mb = m).  
